@@ -144,6 +144,66 @@
       </div>
     </section>
 
+    <!-- VIDEO AND COVERAGE -->
+    <section class="company-features" style="padding: 80px 0; background: #fff;">
+      <div class="container">
+        <!-- Texto Descriptivo Centrado -->
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+          <div class="section-label section-label--center">
+            <span class="section-label__line"></span>
+            <span class="section-label__text">Nosotros</span>
+            <span class="section-label__line"></span>
+          </div>
+          <h2 style="font-size: 2.3rem; font-weight: 800; color: #0A2540; margin-bottom: 20px;">Tu despacho de confianza</h2>
+          <p style="color: #555; line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem;">En Del Valle Asesores, tu seguridad y tranquilidad son nuestra prioridad. Somos un despacho de confianza que cuenta con el capital humano y la experiencia necesaria para atender todas tus necesidades en materia de seguros.</p>
+          <p style="color: #00C8D7; font-weight: 700; font-size: 1.2rem; font-style: italic;">"Creamos conciencia, generamos soluciones."</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
+          <!-- Video -->
+          <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+              <iframe src="https://www.youtube.com/embed/-omuu2lLEEQ" style="position:absolute; top:0; left:0; width:100%; height:100%;" title="Tu despacho de confianza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- States -->
+          <div style="background: #F7FAFC; padding: 40px; border-radius: 24px; border: 1px solid #E2E8F0;">
+            <h3 style="font-size: 1.6rem; font-weight: 800; color: #0A2540; margin-bottom: 12px;">Cobertura a Nivel Nacional</h3>
+            <p style="color: #666; margin-bottom: 24px;">Ofrecemos cobertura y atención asegurada en <strong>diferentes estados</strong> de la República Mexicana:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 16px;">
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Puebla</span>
+              </div>
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Morelos</span>
+              </div>
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Veracruz</span>
+              </div>
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Tlaxcala</span>
+              </div>
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Hidalgo</span>
+              </div>
+              <div style="display:flex; align-items:center; gap: 10px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E86C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span style="font-weight: 600; color:#333;">Quintana Roo</span>
+              </div>
+            </div>
+            <img src="./images/estados.jpeg" alt="Mapa de estados" style="width: 100%; border-radius: 12px; margin-top: 30px; object-fit: cover; max-height: 250px; display: block;" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FORM + INFO -->
     <section class="contact-section">
       <div class="container">
@@ -223,12 +283,16 @@
                   <label class="form-label" for="seguro">¿Qué seguro te interesa? *</label>
                   <select class="form-input" id="seguro" name="seguro" required>
                     <option value="">Selecciona un tipo de seguro</option>
-                    <option>Seguro Médico</option>
-                    <option>Auto Seguro</option>
-                    <option>Ahorro y Retiro</option>
-                    <option>Seguro de Vida</option>
-                    <option>Seguro de Casa</option>
-                    <option>Seguro Empresarial</option>
+                    <option>Autos</option>
+                    <option>Camiones</option>
+                    <option>Grúas</option>
+                    <option>Gastos Médicos</option>
+                    <option>Retiro</option>
+                    <option>Ahorro</option>
+                    <option>Técnicos y Dirigentes</option>
+                    <option>Estudios</option>
+                    <option>PYMES</option>
+                    <option>Hogar</option>
                     <option>Otro / No sé</option>
                   </select>
                 </div>
@@ -266,25 +330,26 @@
       </div>
     </section>
 
-    <!-- MAP PLACEHOLDER -->
-    <section class="map-section" id="mapa">
+    <!-- UBICACIÓN Y MAPA -->
+    <section class="map-section" id="mapa" style="padding: 60px 0; background: #F7FAFC;">
       <div class="container">
-        <div class="map-placeholder">
-          <div class="map-placeholder__inner">
-            <div class="map-placeholder__icon">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-            </div>
-            <p class="map-placeholder__city">Puebla, México</p>
-            <p class="map-placeholder__sub">Consultas presenciales con cita previa</p>
+        <h2 style="text-align:center; font-size: 2rem; font-weight: 800; color: #0A2540;">Encuentra nuestras oficinas</h2>
+        
+        <div class="map-content" style="display:grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px;">
+          
+          <div class="map-info" style="text-align:center; padding: 30px; background: #fff; border: 1px solid #E2E8F0; border-radius: 16px;">
+            <p style="font-size: 1.2rem; font-weight: 700; color: #0A2540;">📍 Estamos ubicados en:</p>
+            <p style="font-size: 1.1rem; color: #555; max-width: 600px; margin: 10px auto;">Diagonal 16 "A" Sur 10542–6, Exhacienda de Chapulco, San José Xilotzingo, 72494 Puebla, Pue.</p>
             <a href="https://wa.me/522227059574?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20presencial"
-              target="_blank" rel="noopener noreferrer" class="btn btn--dark" style="margin-top:16px">
+              target="_blank" rel="noopener noreferrer" class="btn" style="margin-top:20px; display:inline-flex; align-items:center; gap:8px; background:#0A2540; color:#fff;">
               Agendar cita presencial
             </a>
           </div>
+          
+          <div style="border-radius:20px; overflow:hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); line-height: 0;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.816519942689!2d-98.21406458437208!3d18.983708887140995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfbf48a5b1eb71%3A0xaf3711cee54bf889!2sDEL%20VALLE%20ASESORES!5e0!3m2!1ses-419!2smx!4v1660844810039!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
         </div>
       </div>
     </section>
