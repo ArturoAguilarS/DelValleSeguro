@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gastos Médicos — Del Valle Asesores</title>
+  <meta name="description"
+    content="Plan de gastos médicos. Protege tu salud y economía ante cualquier eventualidad sin preocuparte por el costo." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Page-hero ── */
+    .page-hero {
+      background: linear-gradient(135deg, #0A2540 0%, #1a3a6c 60%, #2E86C1 100%);
+      padding: 120px 0 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 134, 193, .2), transparent 70%);
+      top: -150px;
+      right: -150px;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 200, 215, .12), transparent 70%);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .page-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 200, 215, .15);
+      border: 1px solid rgba(0, 200, 215, .3);
+      color: #00C8D7;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero__title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 16px;
+      line-height: 1.15;
+    }
+
+    .page-hero__title span {
+      color: #00C8D7;
+    }
+
+    .page-hero__subtitle {
+      color: rgba(255, 255, 255, .75);
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── Desc section ── */
+    .est-desc {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .est-desc__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media(max-width:768px) {
+      .est-desc__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .est-desc__img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+    }
+
+    .est-desc__img img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .est-desc__label {
+      color: #2E86C1;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .est-desc__title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0A2540;
+      margin: 0 0 20px;
+    }
+
+    .est-desc__text {
+      color: #555;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    /* ── Benefits ── */
+    .est-benefits {
+      padding: 80px 0;
+      background: #F7FAFC;
+    }
+
+    .est-benefits__title {
+      text-align: center;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #0A2540;
+      margin-bottom: 12px;
+    }
+
+    .est-benefits__sub {
+      text-align: center;
+      color: #666;
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+
+    .est-benefits__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .est-benefit-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+      border-left: 4px solid #2E86C1;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .est-benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .1);
+    }
+
+    .est-benefit-card__icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .est-benefit-card__text {
+      color: #444;
+      line-height: 1.6;
+      font-size: .95rem;
+    }
+
+    /* ── Estimator ── */
+    .est-estimator {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .est-estimator__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media(max-width:768px) {
+      .est-estimator__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .est-slider-container {
+      margin: 20px 0 28px;
+      padding: 24px;
+      background: #F7FAFC;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+    }
+
+    .est-slider-container p {
+      font-weight: 600;
+      color: #0A2540;
+      margin-bottom: 12px;
+    }
+
+    .est-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #D6EAF8;
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 20px;
+    }
+
+    .est-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #2E86C1;
+      cursor: pointer;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .est-slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .est-slider-labels span.selected {
+      color: #2E86C1;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .est-slider-note {
+      display: block;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    .est-estimator__title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0A2540;
+      margin: 0 0 12px;
+    }
+
+    .est-estimator__desc {
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .est-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .est-card {
+      background: linear-gradient(135deg, #EBF5FB, #D6EAF8);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .est-card__icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #2E86C1;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .est-card__label {
+      font-size: .8rem;
+      color: #2E86C1;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .est-card__value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0A2540;
+    }
+
+    .est-card--special {
+      background: linear-gradient(135deg, #D5F5E3, #A9DFBF);
+    }
+
+    .est-card--special .est-card__icon {
+      background: #27AE60;
+    }
+
+    .est-card--special .est-card__label {
+      color: #27AE60;
+    }
+
+    /* ── CTA banner ── */
+    .est-cta {
+      background: linear-gradient(135deg, #2E86C1, #1a5276);
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .est-cta__title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .est-cta__sub {
+      color: rgba(255, 255, 255, .85);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .est-cta .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #2E86C1;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    }
+
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, .6);
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, .1);
+      border-color: #fff;
+    }
+
+    /* ── Quote note ── */
+    .est-quote {
+      background: #0A2540;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .est-quote__text {
+      color: rgba(255, 255, 255, .8);
+      font-size: 1rem;
+      font-style: italic;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header__topbar">
+      <span class="header__topbar-phone">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00C8D7" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.18 19.79 19.79 0 0 1 1.61 3.6 2 2 0 0 1 3.6 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.08a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.4l.32.52z" />
+        </svg>
+        Atención 24/7 —
+        <a href="tel:+522227059574">(+52) 222-705-9574</a>
+      </span>
+    </div>
+    <div class="header__main">
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.png" alt="Del Valle Asesores" class="header__logo-img" />
+      </a>
+      <nav class="header__nav">
+        <a href="index.html" class="header__nav-link" data-nav="index">Inicio</a>
+        <a href="servicios.html" class="header__nav-link header__nav-link--active" data-nav="servicios">Servicios</a>
+        <a href="nosotros.html" class="header__nav-link" data-nav="nosotros">Nosotros</a>
+        <a href="contacto.html" class="header__nav-link" data-nav="contacto">Contacto</a>
+        <a href="https://wa.me/522227059574?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20seguros"
+          target="_blank" rel="noopener noreferrer" class="header__cta">Cotizar Ahora</a>
+      </nav>
+      <button class="header__menu-btn" id="menu-btn" aria-label="Abrir menú">
+        <span id="menu-icon-open">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </span>
+        <span id="menu-icon-close" style="display:none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div class="header__mobile-menu" id="mobile-menu">
+      <div class="header__mobile-phone">
+        <a href="tel:+522227059574">(+52) 222-705-9574</a>
+        <span style="margin-left:4px;opacity:.6">— Atención 24/7</span>
+      </div>
+      <a href="index.html" class="header__mobile-link">Inicio</a>
+      <a href="servicios.html" class="header__mobile-link">Servicios</a>
+      <a href="nosotros.html" class="header__mobile-link">Nosotros</a>
+      <a href="contacto.html" class="header__mobile-link">Contacto</a>
+      <a href="https://wa.me/522227059574" target="_blank" rel="noopener noreferrer" class="header__mobile-cta">Cotizar
+        Ahora</a>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+          Seguro de Salud
+        </div>
+        <h1 class="page-hero__title">Plan de <span>Gastos Médicos</span> ⚕️</h1>
+        <p class="page-hero__subtitle">Tener un buen seguro médico es esencial para proteger tu economía y acceder a
+          servicios médicos de calidad sin interrupciones financieras.</p>
+      </div>
+    </section>
+
+    <!-- DESCRIPCIÓN & VIDEO -->
+    <section class="est-desc">
+      <div class="container">
+        <div class="est-desc__inner">
+          <div class="est-desc__img"
+            style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.12);">
+            <iframe src="https://www.youtube.com/embed/vd5q7EeEfA0" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+          </div>
+          <div>
+            <p class="est-desc__label">¿Por qué es importante?</p>
+            <h2 class="est-desc__title">Protección ante lo inesperado</h2>
+            <p class="est-desc__text">Porque nadie sabe <strong>cuándo, dónde, cuánto y cómo</strong>. Todos estamos
+              expuestos a un sinfín de enfermedades o accidentes inesperados.</p>
+            <p class="est-desc__text">Tener un buen seguro médico es esencial para proteger nuestra economía y acceder a
+              los servicios de calidad que necesitamos sin preocuparnos por el costo.</p>
+            <p class="est-desc__text" style="font-weight:700;color:#2E86C1">No queremos que una emergencia médica se
+              convierta en una carga financiera inmensa para nuestras familias.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASESORÍA -->
+    <section class="est-benefits">
+      <div class="container">
+        <h2 class="est-benefits__title">¿Quieres obtener más información?</h2>
+        <p class="est-benefits__sub" style="font-size:1.1rem; color:#0A2540;">Recibe asesoría profesional <strong
+            style="color:#2E86C1;">sin costo</strong>.</p>
+        <p style="text-align:center; color:#555; margin-bottom: 30px;">Contamos con los siguientes medios para brindar
+          asesoría:</p>
+
+        <div class="est-benefits__grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+          <div class="est-benefit-card" style="padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <img src="img/meet/zoom.png" alt="Zoom"
+              style="width:50px; height:50px; margin-bottom:12px; object-fit:contain;">
+            <p class="est-benefit-card__text" style="font-weight:600;">Zoom</p>
+          </div>
+          <div class="est-benefit-card" style="padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <img src="img/meet/meets.png" alt="Meet"
+              style="width:50px; height:50px; margin-bottom:12px; object-fit:contain;">
+            <p class="est-benefit-card__text" style="font-weight:600;">Google Meet</p>
+          </div>
+          <div class="est-benefit-card" style="padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <img src="img/meet/llamada.png" alt="Llamada"
+              style="width:50px; height:50px; margin-bottom:12px; object-fit:contain;">
+            <p class="est-benefit-card__text" style="font-weight:600;">Llamada</p>
+          </div>
+          <div class="est-benefit-card" style="padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <img src="img/meet/mail.png" alt="Mail"
+              style="width:50px; height:50px; margin-bottom:12px; object-fit:contain;">
+            <p class="est-benefit-card__text" style="font-weight:600;">Correo Electrónico</p>
+          </div>
+          <div class="est-benefit-card" style="padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <img src="img/meet/presencial.png" alt="Presencial"
+              style="width:50px; height:50px; margin-bottom:12px; object-fit:contain;">
+            <p class="est-benefit-card__text" style="font-weight:600;">Presencial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="est-cta" style="margin-top:0;">
+      <div class="container">
+        <h2 class="est-cta__title">¡Agenda tu asesoría hoy!</h2>
+        <p class="est-cta__sub">Habla con uno de nuestros asesores y diseña tu plan de protección perfecto acorde a tus
+          necesidades — sin costo y sin compromiso.</p>
+        <div class="btn-group">
+          <a href="https://wa.me/522227059574?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20Gastos%20M%C3%A9dicos"
+            target="_blank" rel="noopener noreferrer" class="btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.55a.75.75 0 00.921.921l5.704-1.47A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.006-1.371l-.36-.214-3.724.96.989-3.614-.235-.373A9.775 9.775 0 012.182 12C2.182 6.564 6.564 2.182 12 2.182S21.818 6.564 21.818 12 17.436 21.818 12 21.818z" />
+            </svg>
+            Contactar por WhatsApp
+          </a>
+          <a href="contacto.html" class="btn-outline-white">
+            Ir a Contacto
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-logo">
+            <img src="img/logo.png" alt="Del Valle Asesores" class="footer__brand-logo-img" />
+          </div>
+          <p class="footer__brand-desc">Más de 30 años protegiendo lo que más importa. Asesoría profesional sin costo en
+            materia de seguros.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/DelValleAsesores.Puebla/" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+            <a href="https://www.instagram.com/del.valle.asesores?igshid=MzRlODBiNFWlZA%3D%3D" target="_blank"
+              rel="noopener noreferrer" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg></a>
+            <a href="https://www.tiktok.com/@delvalleasesoresoficial" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-3h-4z" />
+              </svg></a>
+            <a href="https://wa.me/522227059574" target="_blank" rel="noopener noreferrer"
+              class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.55a.75.75 0 00.921.921l5.704-1.47A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.006-1.371l-.36-.214-3.724.96.989-3.614-.235-.373A9.775 9.775 0 012.182 12C2.182 6.564 6.564 2.182 12 2.182S21.818 6.564 21.818 12 17.436 21.818 12 21.818z" />
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Servicios</h4>
+          <ul class="footer__list">
+            <li><a href="servicios.html" class="footer__list-link">Autos</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Camiones</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Grúas</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Gastos Médicos</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Retiro</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Ahorro</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Técnicos y Dirigentes</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Estudios</a></li>
+            <li><a href="servicios.html" class="footer__list-link">PYMES</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Hogar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Navegación</h4>
+          <ul class="footer__list">
+            <li><a href="index.html" class="footer__list-link">Inicio</a></li>
+            <li><a href="servicios.html" class="footer__list-link">Servicios</a></li>
+            <li><a href="nosotros.html" class="footer__list-link">Nosotros</a></li>
+            <li><a href="contacto.html" class="footer__list-link">Contacto</a></li>
+          </ul>
+          <h4 class="footer__col-title footer__col-title--mt">Aseguradoras</h4>
+          <ul class="footer__list">
+            <li class="footer__list-text">GNP Seguros</li>
+            <li class="footer__list-text">Qualitas</li>
+            <li class="footer__list-text">AXA</li>
+            <li class="footer__list-text">CHUBB</li>
+            <li class="footer__list-text">Insignia Life</li>
+            <li class="footer__list-text">Seguros BX+</li>
+            <li class="footer__list-text">ZURICH</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__col-title">Contacto</h4>
+          <ul class="footer__list">
+            <li><a href="tel:+522227059574" class="footer__contact-item"><span class="footer__contact-icon"><svg
+                    width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.18 19.79 19.79 0 0 1 1.61 3.6 2 2 0 0 1 3.6 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.08a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.4l.32.52z" />
+                  </svg></span><span>(+52) 222-705-9574<br><span class="footer__contact-sub">Atención
+                    24/7</span></span></a></li>
+            <li><a href="mailto:david@delvalleasesores.com" class="footer__contact-item"><span
+                  class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg></span><span style="word-break:break-all">david@delvalleasesores.com</span></a></li>
+            <li>
+              <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg></span><span>Puebla, México</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>©
+        <script>document.write(new Date().getFullYear())</script> Del Valle Asesores. Todos los derechos reservados.
+      </span>
+      <span>Agente autorizado — CNSF México</span>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="float-btns">
+    <div class="float-btns__options" id="float-options">
+      <a href="mailto:david@delvalleasesores.com" class="float-btn float-btn--email"><svg width="16" height="16"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="2" />
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </svg>Correo</a>
+      <a href="tel:+522227059574" class="float-btn float-btn--phone"><svg width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.18 19.79 19.79 0 0 1 1.61 3.6 2 2 0 0 1 3.6 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.08a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.4l.32.52z" />
+        </svg>Llamar</a>
+      <a href="https://wa.me/522227059574" target="_blank" rel="noopener noreferrer"
+        class="float-btn float-btn--wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.55a.75.75 0 00.921.921l5.704-1.47A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.006-1.371l-.36-.214-3.724.96.989-3.614-.235-.373A9.775 9.775 0 012.182 12C2.182 6.564 6.564 2.182 12 2.182S21.818 6.564 21.818 12 17.436 21.818 12 21.818z" />
+        </svg>WhatsApp</a>
+    </div>
+    <button class="float-btn--toggle" id="float-toggle" aria-label="Contacto rápido">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.55a.75.75 0 00.921.921l5.704-1.47A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.006-1.371l-.36-.214-3.724.96.989-3.614-.235-.373A9.775 9.775 0 012.182 12C2.182 6.564 6.564 2.182 12 2.182S21.818 6.564 21.818 12 17.436 21.818 12 21.818z" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav__item" data-nav="index"><svg width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>Inicio</a>
+    <a href="servicios.html" class="bottom-nav__item active" data-nav="servicios"><svg width="20" height="20"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>Servicios</a>
+    <a href="nosotros.html" class="bottom-nav__item" data-nav="nosotros"><svg width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>Nosotros</a>
+    <a href="tel:+522227059574" class="bottom-nav__item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.18 19.79 19.79 0 0 1 1.61 3.6 2 2 0 0 1 3.6 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.08a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.4l.32.52z" />
+      </svg>Llamar</a>
+    <a href="https://wa.me/522227059574" target="_blank" rel="noopener noreferrer"
+      class="bottom-nav__item bottom-nav__item--wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.55a.75.75 0 00.921.921l5.704-1.47A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 01-5.006-1.371l-.36-.214-3.724.96.989-3.614-.235-.373A9.775 9.775 0 012.182 12C2.182 6.564 6.564 2.182 12 2.182S21.818 6.564 21.818 12 17.436 21.818 12 21.818z" />
+      </svg>WhatsApp</a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
